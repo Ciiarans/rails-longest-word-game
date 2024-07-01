@@ -1,0 +1,100 @@
+<h1>New Game</h1>
+<% game = (0...10).map { ('a'..'z').to_a[rand(26)] } %>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #333;
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 10px;
+  }
+
+  .flex-item {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.6s ease-in-out, box-shadow 0.3s, background-color 0.3s;
+  }
+
+  .flex-item:hover {
+    transform: translateY(-10px) rotate(5deg);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    background-color: #e3f2fd;
+  }
+
+  .flex-item h2 {
+    margin: 0;
+    padding: 20px;
+    font-size: 30px;
+    color: #555;
+  }
+
+  .form-container {
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  form {
+    display: inline-block;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+  }
+
+  input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="flex-container">
+  <% game.each do |letter| %>
+    <div class="flex-item"><h2><%= letter %></h2></div>
+  <% end %>
+</div>
+
+<div class="form-container">
+<p>What is the longest word you can find?</p>
+  <form action="/score" method="post" data-remote="false">
+    <input type="text" name="word" placeholder="Enter your word" required>
+    <input type="submit" value="Play">
+  </form>
+</div>

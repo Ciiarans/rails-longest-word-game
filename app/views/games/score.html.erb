@@ -1,0 +1,46 @@
+<h1>Game Score</h1>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    color: #333;
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+
+  .message {
+    font-size: 24px;
+    color: #555;
+    margin-top: 20px;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="message">
+  <%= @message %>
+</div>
+<%= link_to 'Play again!', new_path, class: 'back-link' %>
